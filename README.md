@@ -1,5 +1,5 @@
 # ZMan is a scripting system for your project
-To start any project created with zman just type only one command:
+To start any project created with zman just type the command:
 ```console
 z start
 ```
