@@ -1,0 +1,2 @@
+#!/bin/bash
+rm -rf $ZMAN_PROJECT_PATH/.zman/modules 
