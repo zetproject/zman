@@ -1,0 +1,5 @@
+#!/bin/bash
+if [ "$#" -ne 2 ]; then
+    echo "z mod <url> <commit/branch/tag>"
+fi
+echo $1 $2 >> $ZMAN_MODULES_FILE
