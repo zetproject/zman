@@ -1,13 +1,14 @@
 # ZMan is a scripting system for your project
-To start any project created with zman just type the command:
+For example, you can write an script for build your project from scratch. So, for build project just type:
 ```console
-z start
+z build
 ```
+
 # How it works
-Zman is a set of modules. Any module is a git repository. Each z-command is a shell-script in this repository. You can create your own modules or use third-party ones. 
+ZMan is a set of modules. Any module is a git repository. Each z-command is a shell-script in this repository. You can create your own modules or use third-party ones.
 
 # System requirements
-ZMan can be run on Windows, Linux and Mac OS. For ZMan to work, you must have in the system:
+For ZMan to work, you must have in the system:
 * Git,
 * POSIX-compliant bash shell environment.
 
