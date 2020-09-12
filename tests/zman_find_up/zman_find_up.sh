@@ -1,6 +1,5 @@
 #!/bin/bash
 . tests/prepare_test.sh $0
-cd $MY_DIR
 cd a
 cd b
 RESULT=$($ZSYSTEM_DIR/zman_find_up  -name test.file)
