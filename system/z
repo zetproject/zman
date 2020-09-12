@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Full path to current executable
+ZMAN_COMMAND=`realpath $0`
+
+# Full path to ZMAN installation directory
+export ZMAN_DIR=`dirname $ZMAN_COMMAND`
+
+# Find .zman.modules file
+export ZMAN_MODULES_FILE=$($ZMAN_DIR/zman_find_up -name ".zman.modules")
+
+# Full path to directory with the .zman.modules file
+export ZMAN_PROJECT_PATH=`dirname $ZMAN_MODULES_FILE`
+
+# Checking if lock file is present in project directory
+if [ -f $ZMAN_PROJECT_PATH/.zman.modules.lock ] && [ "$1" != "load" ] ; then
+    echo "Your zman modules is in error state after previous cloning operation. Try execute \"z load\" to clone modules and repair it."
+    exit 1
+fi
+
+# Building the PATH variable
+. $ZMAN_DIR/zman_path_variable
+
+# Take the first argument
+first_arg="$1"
+shift
+
+# Running a z_* command with the remaining arguments
+z_${first_arg} $@
