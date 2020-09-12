@@ -1,5 +1,5 @@
 # ZMan is a scripting system for your project
-For example, you can write an script for build your project from scratch. So, for build project just type:
+For example, you can write an script for build your project from scratch. Now you can build your project using the command:
 ```console
 z build
 ```
