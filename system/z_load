@@ -15,12 +15,11 @@ if [ -d $ZMAN_PROJECT_PATH/.git ]; then
     git_ignore=$ZMAN_PROJECT_PATH/.gitignore
     if [ ! -f $ZMAN_PROJECT_PATH/.gitignore ]; then
         # If .gitignore isn't present
-        echo "Case 1"
+        echo ".gitignore was created"
         echo $ignore_string >> $git_ignore
     else
         # If .gitignore already exists,
         # check if this string is not present in file.
-        echo "Case 2"
         grep -qxF $ignore_string $git_ignore || echo $ignore_string >> $git_ignore
     fi
 fi
