@@ -8,6 +8,16 @@ export ZMAN_DIR=`dirname $ZMAN_COMMAND`
 
 # Find .zman.modules file
 export ZMAN_MODULES_FILE=$($ZMAN_DIR/zman_find_up -name ".zman.modules")
+if [ -z "$ZMAN_MODULES_FILE" ] ; then
+    GIT_INNER_DIR=$($ZMAN_DIR/zman_find_up -name ".git")
+    if [ -z "$ZMAN_MODULES_FILE" ] ; then
+        echo "Git repo is not found. You can use ZMan from git repo only."
+        exit 1
+    fi
+    GIT_PROJECT=`dirname $GIT_INNER_DIR`
+    export ZMAN_MODULES_FILE=$GIT_PROJECT/.zman.modules
+    touch "$ZMAN_MODULES_FILE"
+fi
 
 # Full path to directory with the .zman.modules file
 export ZMAN_PROJECT_PATH=`dirname $ZMAN_MODULES_FILE`
