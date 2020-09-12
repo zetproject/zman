@@ -4,7 +4,11 @@ path="$(pwd)"
 while [[ $path != / ]];
 do
     # Search files
-    find "$path" -maxdepth 1 -mindepth 1 "$@"
+    RESULT=$(find "$path" -maxdepth 1 -mindepth 1 "$@")
+    if [ ! -z "$RESULT" ]; then
+          echo "$RESULT"
+          exit 0
+    fi
     
     # One level up
     path="$(readlink -f "$path"/..)"
