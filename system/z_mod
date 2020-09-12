@@ -3,5 +3,6 @@ if [ "$#" -ne 2 ]; then
     echo "z mod <url> <commit/branch/tag>"
     exit 1
 fi
-echo "$1 $2" >> $ZMAN_MODULES_FILE
+LINE="$1 $2"
+grep -qxF "$LINE" $ZMAN_MODULES_FILE || echo "$LINE" >> $ZMAN_MODULES_FILE
 z_load
