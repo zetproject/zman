@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ZMAN_PATH=
+
+# Iterating over lines of .zman.modules
+while read p; do
+    # Appending module path to the ZMAN_PATH
+    ZMAN_PATH=${ZMAN_PATH}:$($ZMAN_DIR/z_module_path $p)
+done <$ZMAN_MODULES_FILE
+
+# Defining new PATH variable. ZMAN_PATH starts with the ':' character
+export PATH=$PATH:$ZMAN_DIR$ZMAN_PATH
