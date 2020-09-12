@@ -15,7 +15,7 @@ For ZMan to work, you must have in the system:
 # ZMan installation
 In order to install ZMan, run the following commands:
 ```console
-git clone <zman-url>
+git clone https://github.com/zetproject/zman.git
 cd zman
 ./install.sh
 ```
