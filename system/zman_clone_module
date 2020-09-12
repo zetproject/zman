@@ -1,0 +1,24 @@
+#!/bin/bash
+uri=$1
+revision=$2
+
+module_path=$($ZMAN_DIR/z_module_path $uri $revision)
+
+if [ "$?" != "0" ]; then
+    $ZMAN_DIR/z_module_path $uri $revision
+    exit 1
+fi
+
+if [ ! -d "$module_path/.git" ]; then
+    # Creating module directory
+    if ! mkdir -p $module_path; then
+        echo "Error: can't define the path of module: $uri $revision"
+        exit 1
+    fi
+    
+    # Cloning module
+    if ! git clone $uri -b $revision "$module_path"; then
+        echo "Error: can't clone the module $uri $revision to the directory \"$module_path\""
+        exit 1
+    fi
+fi
