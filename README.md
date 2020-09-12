@@ -19,3 +19,4 @@ git clone https://github.com/zetproject/zman.git
 cd zman
 ./install.sh
 ```
+Please, reboot system after installation. This step is needed for the changes to the .bash_profile file to take effect.
